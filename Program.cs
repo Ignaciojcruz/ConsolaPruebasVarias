@@ -12,7 +12,7 @@ namespace ConsolaPruebasVarias
 
         static void Main(string[] args)
         {
-            Console.WriteLine(27);
+            //Console.WriteLine(27);
             //FIRST FACTORIAL ****************************
             //int numero = FirstFactorial(8);
             //Console.WriteLine(numero.ToString());
@@ -26,10 +26,12 @@ namespace ConsolaPruebasVarias
             //Console.WriteLine(numero.ToString());
 
             //ReverseUp5LettersWords
-            Console.WriteLine(ReverseUp5LettersWords("emocleW"));
-            Console.WriteLine(ReverseUp5LettersWordsBestSolution("Stop Spinning My Words!"));
+            //Console.WriteLine(ReverseUp5LettersWords("emocleW"));
+            //Console.WriteLine(ReverseUp5LettersWordsBestSolution("Stop Spinning My Words!"));
 
-            Console.WriteLine(Math.Pow(123, 5));
+            //SumaDigitosDelnumero();
+
+            IdAndShip();
 
 
             Console.ReadKey();
@@ -109,6 +111,8 @@ namespace ConsolaPruebasVarias
             List<string> listaResultado = new List<string>();
             string word = "", especial = "", wordReverse = "";
             char especialChar = ' ';
+
+            
             
             //recorrer lista de palabras
             foreach (string item in words)
@@ -159,10 +163,61 @@ namespace ConsolaPruebasVarias
             //devolver listado de palabras
             return fraseResultado;
         }
-
         public static string ReverseUp5LettersWordsBestSolution(string sentence)
         {
             return String.Join(" ", sentence.Split(' ').Select(str => str.Length >= 5 ? new string(str.Reverse().ToArray()) : str));
+        }
+
+
+        //Suma los dígitos del numero enviado
+        public static void SumaDigitosDelnumero()
+        {
+            uint n = UInt32.Parse(Console.ReadLine());
+            byte ans = 0;
+            uint number = n;
+            uint ver = 0;
+
+            while (number > 0)
+            {
+                ver = number % 10;
+                ans += Convert.ToByte(number % 10);
+                number /= 10;
+            }
+
+            Console.WriteLine(ans);            
+        }
+
+        //Id and Ship from CodeChf
+        public static void IdAndShip()
+        {
+            // your code goes here
+            int T = int.Parse(Console.ReadLine());
+            int i = 0;
+
+            while (i < T)
+            {
+                string input = Console.ReadLine().ToUpper();
+                char letter = input[0];
+
+                switch (letter)
+                {
+                    case 'B':
+                        Console.WriteLine("BattleShip");
+                        break;
+
+                    case 'C':
+                        Console.WriteLine("Cruiser");
+                        break;
+
+                    case 'D':
+                        Console.WriteLine("Destroyer");
+                        break;
+
+                    default:
+                        break;
+                }
+                i++;
+            }
         }
 
     }
