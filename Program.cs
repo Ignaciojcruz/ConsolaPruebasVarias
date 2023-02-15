@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,7 +32,21 @@ namespace ConsolaPruebasVarias
 
             //SumaDigitosDelnumero();
 
-            IdAndShip();
+            //IdAndShip();
+
+            //DisplayPathToPrincess
+            int m;
+
+            m = int.Parse(Console.ReadLine());
+
+            String[] grid = new String[m];
+            for (int i = 0; i < m; i++)
+            {
+                grid[i] = Console.ReadLine();
+            }
+
+            DisplayPathToPrincess(m, grid);
+
 
 
             Console.ReadKey();
@@ -187,7 +202,7 @@ namespace ConsolaPruebasVarias
             Console.WriteLine(ans);            
         }
 
-        //Id and Ship from CodeChf
+        //Id and Ship from CodeChef
         public static void IdAndShip()
         {
             // your code goes here
@@ -220,5 +235,66 @@ namespace ConsolaPruebasVarias
             }
         }
 
+
+        //DisplayPathToPrincess
+        public static void DisplayPathToPrincess(int n, string[] grid)
+        {
+            string[,] arreglo = new string[n,n];
+            int iPrincess = 0, jPrincess = 0, iMario = 0, jMario = 0;
+
+            for(int i = 0; i < n; i++) 
+            {
+                for(int j = 0; j < grid[i].Length; j++)
+                {
+                    arreglo[i,j] = grid[i].Substring(j, 1);
+
+                    if (arreglo[i, j] == "p")
+                    {
+                        iPrincess = i;  //2
+                        jPrincess=j;    //0
+                    }
+
+                    if (arreglo[i, j] == "m")
+                    {
+                        iMario = i;     //1
+                        jMario = j;     //1
+                    }
+                }            
+            }
+
+            while((iPrincess != iMario) && (jPrincess != iMario))
+            {
+                if (iPrincess > iMario)
+                {
+                    //si es mayor debe DOWN tantas veces como lo que falta en ser igual
+                    Console.WriteLine("DOWN");
+                    iMario++;
+                }
+
+                if (iPrincess < iMario)
+                {
+                    //si es menor debe UP tantas veces como lo que falta en ser igual
+                    Console.WriteLine("UP");
+                    iMario--;
+                }
+
+                if (jPrincess > jMario)
+                {
+                    //si es mayor debe RIGTH tantas veces como lo que falta en ser igual
+                    Console.WriteLine("RIGHT");
+                    jMario++;
+                }
+
+                if (jPrincess < jMario)
+                {
+                    //si es menor debe LEFT tantas veces como lo que falta en ser igual
+                    Console.WriteLine("LEFT");
+                    jMario++;
+                }
+            }
+            
+            
+            
+        }
     }
 }
