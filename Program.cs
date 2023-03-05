@@ -35,18 +35,20 @@ namespace ConsolaPruebasVarias
             //IdAndShip();
 
             //DisplayPathToPrincess
-            int m;
+            //int m;
 
-            m = int.Parse(Console.ReadLine());
+            //m = int.Parse(Console.ReadLine());
 
-            String[] grid = new String[m];
-            for (int i = 0; i < m; i++)
-            {
-                grid[i] = Console.ReadLine();
-            }
+            //String[] grid = new String[m];
+            //for (int i = 0; i < m; i++)
+            //{
+            //    grid[i] = Console.ReadLine();
+            //}
 
-            DisplayPathToPrincess(m, grid);
+            //DisplayPathToPrincess(m, grid);
 
+
+            MaxAndMin();
 
 
             Console.ReadKey();
@@ -295,6 +297,27 @@ namespace ConsolaPruebasVarias
             
             
             
+        }
+
+
+        //max and min de un arreglo
+        public static void MaxAndMin()
+        {
+
+            string[] lines = Console.ReadLine().Split(' ');
+
+            int A = Convert.ToInt32(lines[0]);
+            int B = Convert.ToInt32(lines[1]);
+            int C = Convert.ToInt32(lines[2]);
+
+            int[] arr = new int[] {A, B, C};
+
+            int max = arr.Max();
+            int min = arr.Min();
+
+            Console.WriteLine((max - min).ToString());
+
+
         }
     }
 }
